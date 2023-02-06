@@ -25,3 +25,37 @@
 “ед”: [“шт.”]
 }
 """
+
+prod_num = int(input('Введите колличество позиций товара'))
+
+products = []
+for i in range(1, prod_num + 1):
+    print(f'Товар №{i}: ')
+    p_name = input("Название: ")
+    p_price = int(input("Цена: "))
+    p_count = int(input("Количество: "))
+    p_measure = input("Единица измерения: ")
+    products.append((i, {'название': p_name, 'цена': p_price, 'количество': p_count, 'eд': p_measure}))
+
+print("Исходный список товаров: ")
+for i in products:
+    print(i)
+
+names = []
+prices = []
+counts = []
+measures = []
+for i in products:
+    names.append(i[1].get('название'))
+    prices.append(i[1].get('цена'))
+    counts.append(i[1].get('количество'))
+    measures.append(i[1].get('eд'))
+
+dct = {
+    'названия': set(names),
+    'цены': set(prices),
+    'количество': set(counts),
+    'eд': set(measures)
+}
+
+print(f'Отчет: {dct}')
