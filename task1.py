@@ -8,3 +8,21 @@
 Результат через список: Осень
 Результат через словарь: Осень
 """
+
+m_num = input('Введите номер месяца: ')
+
+m_lst = ['1 2 3', '4 5 6', '7 8 9', '10 11 12']
+w_lst = ["Зима", 'Весна', 'Лето', 'Осень']
+m_dct = dict(zip(m_lst, w_lst))
+
+if 1 <= int(m_num) <= 12:
+    #Списки
+    for i, m_lst in enumerate(m_lst):
+        if m_num in m_lst:
+            print(f'результат через список: {w_lst[i]}')
+    #Словарь
+    for key in m_dct:
+        if m_num in key:
+            print(f'результат через словарь: {m_dct[key]}')
+else:
+    print("Не верный номер месяца")
